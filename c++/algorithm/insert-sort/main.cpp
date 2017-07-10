@@ -1,7 +1,7 @@
 /********************************************
 Author: zchshen
 Date: 2017-07-09
-Brief: ascending order of insert sort
+Brief: ascending order of insert sort by array.
 ********************************************/
 
 #include <iostream>
@@ -15,12 +15,12 @@ void InsertSortUp(int *array, const int &count){
 
 	for (int i=1; i<count; i++){
 		tmp = array[i];
-		for (int j=0; j<i; j++){
+		for (int j=i-1; j>=0; j--){
 			if (array[i] < array[j]){
-				for (int k=i; k>j; k--){
-					array[k] = array[k-1];
-				}
-				array[j] = tmp;
+				array[j+1] = array[j];
+			}
+			else{
+				array[j+1] = tmp;
 				break;
 			}
 		}
